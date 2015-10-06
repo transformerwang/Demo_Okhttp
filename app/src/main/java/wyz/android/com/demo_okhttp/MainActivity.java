@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import java.util.List;
 import wyz.android.com.adapter.MyAdapter;
 import wyz.android.com.model.Model;
 
-public class MainActivity extends AppCompatActivity implements Interface<List<Model>> {
+public class MainActivity extends AppCompatActivity implements Interface<String[]> {
 
     private URL url;
     private URL url_1;
@@ -83,9 +85,16 @@ public class MainActivity extends AppCompatActivity implements Interface<List<Mo
     }
 
     @Override
-    public void onTaskComplete(List<Model> result) {
+    public void onTaskComplete(String[] result) {
         //Toast.makeText(MainActivity.this,result.get(0).getName(),Toast.LENGTH_LONG).show();
-        MyAdapter adapter_1 = new MyAdapter(result,MainActivity.this);
+        List<Model> list_1 = new ArrayList<>();
+        for(int i=0;i<result.length;i++)
+        {
+            Gson gson_1 = new Gson();
+            Model model = gson_1.fromJson(result[i],Model.class);
+            list_1.add(model);
+        }
+        MyAdapter adapter_1 = new MyAdapter(list_1,MainActivity.this);
         mRecycler.setAdapter(adapter_1);
     }
 

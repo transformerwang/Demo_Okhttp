@@ -16,8 +16,12 @@ public class Model {
     private String id;
     private String name;
     private String cod;
+    private String dt_txt;
+    private Clouds clouds;
+    private Rain rain;
+    private Snow snow;
 
-    public Model(Coord coord, List<Weather> weather, String base, Main main, Wind wind, String dt, Sys sys, String id, String name, String cod)
+    public Model(Coord coord, List<Weather> weather, String base, Main main, Wind wind, String dt, Sys sys, String id, String name, String cod,String dt_txt,Clouds clouds,Rain rain,Snow snow)
     {
         this.coord = coord;
         this.weather = weather;
@@ -29,6 +33,10 @@ public class Model {
         this.id = id;
         this.name = name;
         this.cod = cod;
+        this.dt_txt = dt_txt;
+        this.clouds = clouds;
+        this.rain = rain;
+        this.snow = snow;
     }
 
     public Coord getCoord() {
@@ -109,5 +117,37 @@ public class Model {
 
     public void setCod(String cod) {
         this.cod = cod;
+    }
+
+    public String getDt_txt() {
+        return dt_txt;
+    }
+
+    public void setDt_txt(String dt_txt) {
+        this.dt_txt = dt_txt;
+    }
+
+    public Clouds getClouds() {
+        return clouds;
+    }
+
+    public void setClouds(Clouds clouds) {
+        this.clouds = clouds;
+    }
+
+    public Rain getRain() {
+        return rain;
+    }
+
+    public void setRain(Rain rain) {
+        this.rain = rain;
+    }
+
+    public Snow getSnow() {
+        return snow;
+    }
+
+    public void setSnow(Snow snow) {
+        this.snow = snow;
     }
 }

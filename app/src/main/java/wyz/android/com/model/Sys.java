@@ -10,8 +10,9 @@ public class Sys {
     private String country;
     private String sunrise;
     private String sunset;
+    private String pod;
 
-    public Sys(String type, String id, String message, String country, String sunrise, String sunset)
+    public Sys(String type, String id, String message, String country, String sunrise, String sunset,String pod)
     {
         this.type = type;
         this.id = id;
@@ -19,6 +20,7 @@ public class Sys {
         this.country = country;
         this.sunrise = sunrise;
         this.sunset = sunset;
+        this.pod = pod;
     }
 
     public String getType() {
@@ -67,5 +69,13 @@ public class Sys {
 
     public void setSunset(String sunset) {
         this.sunset = sunset;
+    }
+
+    public String getPod() {
+        return pod;
+    }
+
+    public void setPod(String pod) {
+        this.pod = pod;
     }
 }
